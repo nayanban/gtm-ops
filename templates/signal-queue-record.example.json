@@ -6,6 +6,9 @@
   "source_url": "https://example.com/source",
   "status": "New",
   "extraction_status": "Pending",
+  "review_status": "Not reviewed",
+  "cleanup_eligible": false,
+  "last_checked_at": "2026-01-01T10:00:00Z",
   "notes": [
     {
       "title": "Event context",
