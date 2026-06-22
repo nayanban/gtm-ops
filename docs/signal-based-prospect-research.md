@@ -6,6 +6,8 @@ This playbook describes an architecture for turning public events into a review 
 
 Identify potentially relevant organizations or people from public signals without pretending that every signal is outreach-ready.
 
+This pattern is useful when public events create possible sales signals, but raw alerts are too noisy to use directly. The system should produce a review queue, not an outreach machine.
+
 ## Architecture
 
 Use a staged queue:
@@ -16,6 +18,18 @@ Use a staged queue:
 4. Add source-backed notes.
 5. Mark extraction status.
 6. Review the candidate before outreach or CRM creation.
+
+## Extraction Boundary
+
+Separate candidate creation from difficult extraction work.
+
+| Layer | Owns |
+| --- | --- |
+| CRM or system of record | Schedule, candidate records, dedupe keys, status, and cleanup state. |
+| External worker | Document retrieval, parsing, entity extraction, and evidence notes. |
+| Human reviewer | Commercial judgment and next action. |
+
+This keeps the system of record authoritative without forcing fragile parsing logic into a workflow engine that is poorly suited for it.
 
 ## Signal Statuses
 
@@ -53,6 +67,18 @@ Entity identified
 - Do not hide extraction failures.
 - Do not enrich contacts or reveal private contact data unless the candidate set has been reviewed.
 - Do not let automation decide commercial fit on its own.
+
+## Useful Dedupe Keys
+
+Candidate signals should have deterministic external IDs. Depending on the source, a good dedupe key may combine:
+
+- source system;
+- event/document ID;
+- event date;
+- signal type;
+- relevant entity, when known.
+
+The dedupe key should prevent repeated alerts from creating duplicate candidate records while still allowing genuinely new events for the same organization to appear.
 
 ## Human Review Questions
 
