@@ -29,6 +29,7 @@ Public-safe lessons:
 - Parties, organizations, or summaries alone may not identify a useful next action.
 - The useful unit is often an identified attorney, firm, buyer, vendor, or other actionable entity.
 - Document or PDF extraction can outperform generic web search when source documents contain signature blocks, structured evidence, or official contact context.
+- Broad enrichment is weakest when it guesses beyond the event. Source-document extraction is stronger when the document itself contains the actionable entity.
 - Deterministic enrichment from already-observed facts is safer than broad speculative enrichment.
 - Unknown values should remain explicit instead of being hidden behind polished summaries.
 
@@ -53,6 +54,21 @@ This keeps the system of record authoritative without forcing fragile parsing lo
 | No entity found | Event did not produce a useful sales-review entity. |
 | Extraction failed | Technical failure; needs retry or manual review. |
 | Reviewed | Human reviewed and accepted, rejected, or deferred. |
+
+## Extraction And Cleanup Policy
+
+Do not clean up signal records merely because they are incomplete.
+
+| State | Cleanup Policy |
+| --- | --- |
+| Pending | Not cleanup-eligible. Extraction or review has not completed. |
+| Entity found | Not cleanup-eligible until human review decides the next action. |
+| No entity found | Cleanup-eligible only after the no-entity result is recorded with evidence or reason. |
+| Extraction failed | Not cleanup-eligible until retry limits or manual review are complete. |
+| Reviewed and rejected | Cleanup-eligible when the rejection reason is recorded. |
+| Reviewed and accepted | Not cleanup-eligible; route to the approved next workflow. |
+
+The system should make uncertainty visible. Pending, failed, and partially extracted records are work queues, not trash.
 
 ## Notes Structure
 
