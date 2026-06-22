@@ -2,13 +2,15 @@
 
 Portfolio/reference playbooks for practical go-to-market and revenue-operations automation.
 
-The playbooks focus on CRM enrichment, meeting-note workflows, prospect data cleanup, and signal-based research systems. The examples are synthetic and the patterns are designed to be adapted to different CRM and GTM stacks.
+The playbooks focus on CRM enrichment, meeting-note workflows, outbound engagement routing, prospect data cleanup, account-research infrastructure, and signal-based research systems. The examples are synthetic and the patterns are designed to be adapted to different CRM and GTM stacks.
 
 ## What Is Included
 
 - CRM enrichment architecture for keeping company and person data separate.
 - Meeting-notes-to-CRM workflow design for reliable human-approved updates.
+- Outbound engagement-to-CRM patterns for preserving provenance while enriching records.
 - Prospect data cleanup patterns for turning messy outbound lists into reviewable datasets.
+- Account-research infrastructure for building reviewed account universes before contact enrichment.
 - Signal-based prospect research architecture for converting public events into useful sales review queues.
 
 ## Design Principles
@@ -23,13 +25,18 @@ The playbooks focus on CRM enrichment, meeting-note workflows, prospect data cle
 
 ```text
 docs/
+  selected-project-patterns.md
   crm-enrichment-architecture.md
   meeting-notes-to-crm-workflow.md
+  outbound-engagement-to-crm.md
   prospect-data-cleanup-workflow.md
+  account-research-infrastructure.md
   signal-based-prospect-research.md
 templates/
   approved-crm-write-input.example.json
   data-cleanup-review-columns.csv
+  crm-routing-proposal.example.json
+  signal-queue-record.example.json
 ```
 
 ## Privacy
