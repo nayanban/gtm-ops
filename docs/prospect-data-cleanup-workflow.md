@@ -33,6 +33,22 @@ This pattern is for datasets where the raw export is directionally useful but no
 8. Create separate clean, removed, and review-needed files.
 9. Reconcile row counts before using the cleaned dataset.
 
+## Reusable Prompt Sequence
+
+For AI-assisted cleanup, use a staged prompt sequence rather than one large instruction:
+
+| Step | Purpose |
+| --- | --- |
+| Inspect | Confirm row count, columns, required fields, and quality issues. |
+| Plan | Decide keep/remove columns and whether geography normalization is needed. |
+| Normalize | Add or clean state/region fields without altering unrelated text. |
+| Classify | Assign Keep, Remove, or Review with category and reason. |
+| Review | Focus only on ambiguous rows and suggest final decisions where confidence is high. |
+| Output | Produce clean, removed, and review-needed files. |
+| QA | Reconcile row counts and verify columns, geography, and sample decisions. |
+
+Splitting the workflow this way prevents the model from silently editing source data before the review logic is visible.
+
 ## Taxonomy Before Tagging
 
 When the cleanup requires practice-area, segment, or buyer-fit tags, build the taxonomy from the dataset before tagging rows.
@@ -73,6 +89,18 @@ Sparse checkpoints reduce noise, preserve progress between batches, and make fin
 - low-information placeholders;
 - organizations outside the intended buyer profile.
 
+## Removal Pattern Table
+
+| Category | Public-Safe Pattern |
+| --- | --- |
+| Data or workflow vendors | Description sells software, data, platforms, or automation rather than buyer services. |
+| Support services | Business provides administrative, filing, retrieval, or operational support. |
+| Staffing/recruiting | Main service is hiring, placement, outsourcing, or flexible labor. |
+| Media/education/directories | Business model is publishing, listing, events, education, or lead generation. |
+| Claims/corporate services | Business administers claims, notices, entities, or transactions rather than buying the target product. |
+| Thin records | Description is blank, generic, placeholder-like, or insufficient for confident classification. |
+| Outside buyer profile | Organization is real but does not match the intended buying motion. |
+
 ## Review Principles
 
 - Do not delete only because an industry label looks broad.
@@ -92,3 +120,5 @@ Sparse checkpoints reduce noise, preserve progress between batches, and make fin
 - Tags use blanks for absence, not `No` values.
 - The taxonomy reference is saved next to the cleaned outputs.
 - Sampled tagged rows match the written rules.
+
+For practice-area or segment tagging, see [Practice-Area Tagging Workflow](practice-area-tagging-workflow.md).
