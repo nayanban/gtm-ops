@@ -1,2 +1,2 @@
-Name,Description,Primary Industry,Size,Location,State,Domain,Profile URL,Decision,Category,Brief Reason
-Example Company,Synthetic example description.,Example Industry,51-200,"Denver, Colorado",Colorado,example.com,https://example.com,Review,Example category,Synthetic example only.
+Name,Description,Primary Industry,Size,Original Location,Location,State,Domain,Profile URL,Decision,Category,Brief Reason,Review Notes
+Example Company,Synthetic example description.,Example Industry,51-200,"Denver, CO","Denver, Colorado",Colorado,example.com,https://example.com,Review,Example category,Synthetic example only.,Needs human confirmation.
