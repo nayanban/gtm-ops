@@ -25,9 +25,11 @@ The playbooks focus on CRM enrichment, meeting-note workflows, outbound engageme
 
 ```text
 docs/
+  operator-runbook.md
   selected-project-patterns.md
   crm-enrichment-architecture.md
   crm-enrichment-implementation-pattern.md
+  enrichment-failure-modes.md
   crm-backfill-safety-pattern.md
   crm-record-experience-standards.md
   meeting-notes-to-crm-workflow.md
@@ -37,8 +39,10 @@ docs/
   practice-area-tagging-workflow.md
   account-research-infrastructure.md
   signal-based-prospect-research.md
+  privacy-redaction-checklist.md
 templates/
   approved-crm-write-input.example.json
+  verification-report.example.json
   crm-write-state.example.json
   outbound-source-note.example.json
   data-cleanup-review-columns.csv
@@ -46,6 +50,9 @@ templates/
   signal-queue-record.example.json
   practice-area-taxonomy.example.csv
   sparse-practice-tags.example.csv
+  module-enrichment-decision.example.md
+  crm-module-audit-checklist.example.md
+  crm-field-policy-matrix.example.csv
 ```
 
 ## Privacy
