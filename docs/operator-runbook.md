@@ -37,7 +37,7 @@ Do not write unsupported facts just because they make the record look more compl
 
 Create a proposal before writing anything.
 
-Use `templates/crm-routing-proposal.example.json` as the shape for:
+Use [CRM Routing Proposal](../templates/crm-routing-proposal.example.json) as the shape for:
 
 - source reference;
 - routing outcome;
@@ -63,7 +63,7 @@ See [Human-Approved CRM Write Contract](human-approved-crm-write-contract.md).
 
 ## Step 4: Approved Input
 
-Use `templates/approved-crm-write-input.example.json` to convert the approved proposal into write input.
+Use [Approved CRM Write Input](../templates/approved-crm-write-input.example.json) to convert the approved proposal into write input.
 
 The write input should include:
 
@@ -88,7 +88,7 @@ Do not create related objects until the target record is known.
 
 ## Step 6: Stateful Resume
 
-Use `templates/crm-write-state.example.json` to avoid duplicate writes.
+Use [CRM Write State](../templates/crm-write-state.example.json) to avoid duplicate writes.
 
 On rerun:
 
@@ -101,7 +101,7 @@ On rerun:
 
 ## Step 7: Verification Report
 
-Use `templates/verification-report.example.json` to capture:
+Use [Verification Report](../templates/verification-report.example.json) to capture:
 
 - what was created or updated;
 - what was intentionally skipped;
