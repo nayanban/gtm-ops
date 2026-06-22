@@ -1,0 +1,12 @@
+{
+  "title": "Outbound engagement source",
+  "content": {
+    "source_system": "outbound-platform",
+    "event_type": "email_opened",
+    "campaign": "Synthetic campaign",
+    "event_time": "2026-01-01T10:00:00Z",
+    "source_person_reference": "synthetic-person-id",
+    "message_reference": "synthetic-message-id",
+    "reason": "Record created or updated after a tracked outbound engagement event."
+  }
+}
