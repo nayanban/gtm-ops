@@ -4,6 +4,8 @@ Portfolio/reference playbooks for practical go-to-market and revenue-operations 
 
 The playbooks focus on CRM enrichment, meeting-note workflows, outbound engagement routing, prospect data cleanup, account-research infrastructure, and signal-based research systems. The examples are synthetic and the patterns are designed to be adapted to different CRM and GTM stacks.
 
+Start with [Docs Index](docs/index.md) for a guided overview, or [Operator Runbook](docs/operator-runbook.md) for the end-to-end workflow.
+
 ## What Is Included
 
 - CRM enrichment architecture for keeping company and person data separate.
