@@ -1,0 +1,19 @@
+{
+  "signal_name": "2026-01-01 Example Signal - Example Matter",
+  "signal_external_id": "source:example:document:12345:signal:example",
+  "event_date": "2026-01-01",
+  "signal_type": "Example Public Event",
+  "source_url": "https://example.com/source",
+  "status": "New",
+  "extraction_status": "Pending",
+  "notes": [
+    {
+      "title": "Event context",
+      "content": "Synthetic event summary with source URL and known facts."
+    },
+    {
+      "title": "Entity identified",
+      "content": "Entity: Not found\nEvidence: Not found\nConfidence: Pending extraction"
+    }
+  ]
+}
