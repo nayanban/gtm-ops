@@ -4,3 +4,4 @@ Real Estate Litigation,Tag only when real estate work is contested or adversaria
 Probate / Trust Litigation,Tag only when trusts or estates are disputed,"will contest; fiduciary dispute; contested probate","estate planning; wills drafting; tax planning"
 Intellectual Property Litigation,Tag when IP work involves enforcement or disputes,"infringement; trade secret dispute; IP litigation","trademark filing; patent prosecution"
 General Civil Litigation,Use when litigation is clear but no specific subject fits,"trial practice; civil litigation; dispute resolution","advisory work without dispute signal"
+Excluded Cue - Transactional Real Estate,Use as a negative rule for litigation tagging when descriptions mention non-adversarial real estate work,"closing; conveyancing; leasing; title review","foreclosure; eviction; boundary dispute; contested proceeding"
