@@ -1,6 +1,6 @@
 # GTM Ops
 
-Reusable playbooks for practical go-to-market and revenue-operations automation.
+Portfolio/reference playbooks for practical go-to-market and revenue-operations automation.
 
 The playbooks focus on CRM enrichment, meeting-note workflows, prospect data cleanup, and signal-based research systems. The examples are synthetic and the patterns are designed to be adapted to different CRM and GTM stacks.
 
@@ -42,6 +42,8 @@ The repository intentionally excludes private implementation material:
 - customer, prospect, or referral names;
 - private sales strategy, target-account lists, or segmentation findings.
 
-## License
+## Rights
 
-MIT. See [LICENSE](LICENSE).
+Copyright (c) 2026 Nayan Banerjee. All rights reserved.
+
+This repository is shared publicly for portfolio and reference purposes only. No license is granted for reuse, redistribution, sublicensing, or commercial use without written permission.
