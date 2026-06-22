@@ -52,6 +52,21 @@ Treat contact enrichment as scarce:
 - Deepen only selected high-priority accounts.
 - Keep a record of why enrichment was justified.
 
+## Research Tool Validation Pattern
+
+Before relying on a research or enrichment tool, record what was tested and what was deliberately avoided.
+
+| Validation Area | Question |
+| --- | --- |
+| Capability tested | What did the tool prove it can do with synthetic or reviewed inputs? |
+| Data touched | Did the test avoid private records, live prospects, and unapproved exports? |
+| Cost or credit risk | Could the action consume scarce credits, paid lookups, or rate-limited calls? |
+| Actions avoided | Which writes, exports, enrichments, or messages were deliberately not run? |
+| Output quality | Were results specific, source-backed, and useful for account review? |
+| Safe escalation | What must be true before the tool can run on a reviewed account set? |
+
+This keeps account research from turning into uncontrolled data collection. A tool can be promising and still not be approved for broad use.
+
 ## Review Questions
 
 - What source accounts define the pattern?
