@@ -19,6 +19,19 @@ Use a staged queue:
 5. Mark extraction status.
 6. Review the candidate before outreach or CRM creation.
 
+## What Made The Signal Useful
+
+The useful unit is not the raw event. It is the actionable entity surfaced by the event.
+
+Public-safe lessons:
+
+- Raw event alerts can be too noisy on their own.
+- Parties, organizations, or summaries alone may not identify a useful next action.
+- The useful unit is often an identified attorney, firm, buyer, vendor, or other actionable entity.
+- Document or PDF extraction can outperform generic web search when source documents contain signature blocks, structured evidence, or official contact context.
+- Deterministic enrichment from already-observed facts is safer than broad speculative enrichment.
+- Unknown values should remain explicit instead of being hidden behind polished summaries.
+
 ## Extraction Boundary
 
 Separate candidate creation from difficult extraction work.
