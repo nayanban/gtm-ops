@@ -6,6 +6,8 @@ This playbook describes a safe pattern for enriching CRM records while keeping c
 
 Improve record quality without overwriting human-entered relationship context or mixing organization data into person fields.
 
+This pattern came from a CRM rebuild where enrichment had to improve record completeness without disturbing customer-success, billing, subscription, or account-management workflows. The central lesson was that enrichment is not one feature. It is a set of module-specific decisions about identity, provenance, overwrite behavior, and downstream automation.
+
 ## Core Model
 
 Use separate surfaces for separate jobs:
@@ -28,6 +30,48 @@ Use separate surfaces for separate jobs:
 6. Do not overwrite person-specific fields with organization data.
 7. Keep billing, subscription, customer-success, and account-management automations outside the enrichment change unless they are explicitly in scope.
 
+## Module Boundary Pattern
+
+Treat CRM modules as different operational surfaces, not interchangeable tables.
+
+| Module Type | Public Pattern |
+| --- | --- |
+| Top-of-funnel people | Start here when someone is not yet tied to a customer/account relationship. |
+| Post-lead people | Keep only people with a meaningful relationship to an account, opportunity, subscription, or customer context. |
+| Legacy people | Move stale/orphan records into a reviewable holding area instead of deleting them blindly. |
+| Accounts | Own company-level enrichment and relationship context. |
+| Opportunities/subscriptions | Treat as protected commercial/customer-success surfaces; audit before changing. |
+
+This prevents a common CRM failure mode: pushing every person record through the same enrichment logic and then discovering that top-of-funnel, customer, and legacy data have been mixed together.
+
+## Cleanup Before Enrichment
+
+Before enabling enrichment on a person module, run a source and automation audit:
+
+- active workflows;
+- assignment rules;
+- validation rules;
+- blueprints;
+- functions or automations attached to the module;
+- native record-creation paths;
+- protected downstream processes.
+
+If the module contains stale standalone people, split them into a legacy/review area before enabling enrichment. Preserve provenance, original IDs where appropriate, ownership context, and raw values that may not pass current field validation.
+
+## Why Some Enrichment Should Not Be Enabled
+
+Useful architecture includes saying no.
+
+Do not enable a native or third-party enrichment path when:
+
+- the provider returns company fields for a person record;
+- blank-only overwrite controls are unclear;
+- current-company data could incorrectly change account relationships;
+- marketplace permissions have not been reviewed;
+- the output fields do not map cleanly to the CRM data model.
+
+In those cases, document the decision, keep the module clean, and park enrichment until a controlled person-level path exists.
+
 ## Guardrails
 
 - Do not assume one module's enrichment setup applies to every CRM module.
@@ -45,3 +89,5 @@ Use separate surfaces for separate jobs:
 - How will false matches be detected?
 - What is the rollback path if enrichment behaves badly?
 - Which downstream automations could be affected?
+- Is this enrichment path company-level, person-level, or a mix that needs to be rejected?
+- Does the module need cleanup before enrichment is useful?
