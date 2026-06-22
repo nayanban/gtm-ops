@@ -1,0 +1,38 @@
+{
+  "source": {
+    "system": "meeting-notes",
+    "meeting_id": "example-meeting-id",
+    "meeting_title": "Example discovery call",
+    "meeting_date": "2026-01-01"
+  },
+  "owner_id": "example-owner-id",
+  "record": {
+    "mode": "create",
+    "record_id": null,
+    "fields": {
+      "First_Name": "Example",
+      "Last_Name": "Person",
+      "Company": "Example Company",
+      "Email": "person@example.com",
+      "Lead_Source": "Example Source"
+    }
+  },
+  "activity": {
+    "create": true,
+    "subject": "Meeting - Example Person - 2026-01-01",
+    "start_time": "2026-01-01T10:00:00-07:00",
+    "duration": "30:00",
+    "description": "Synthetic example only. Replace with approved source-backed meeting context."
+  },
+  "note": {
+    "create": true,
+    "title": "Meeting summary - 2026-01-01",
+    "content": "Synthetic example summary. Replace with a concise approved CRM note."
+  },
+  "task": {
+    "create": false,
+    "subject": "",
+    "description": "",
+    "due_date": null
+  }
+}
