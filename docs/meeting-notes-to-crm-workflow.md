@@ -16,6 +16,18 @@ This pattern is designed for high-context sales conversations where the raw note
 - Original lead source, when known.
 - Any user-supplied corrections.
 
+## Source Handling
+
+Use the strongest available source before drafting CRM content:
+
+1. Meeting metadata and attendee context.
+2. Generated summary, if substantive.
+3. Manual/private notes, if available.
+4. Transcript or full meeting detail, when needed and available.
+5. Search/query summaries only as supporting context, not as the sole source for a write.
+
+The proposal should clearly separate sourced facts from uncertainty. If a next step is not supported by the available source, say so rather than inventing a clean-sounding follow-up.
+
 ## Routing First
 
 Before extracting fields, decide where the update belongs:
@@ -29,6 +41,19 @@ Before extracting fields, decide where the update belongs:
 | Ask user | The target person, company, or relationship is ambiguous. |
 
 Related or referral people mentioned in a meeting should remain separate from the target record unless the user explicitly asks to create or update records for them. This avoids a subtle but damaging error: letting an interesting referral name replace the person the meeting was actually with.
+
+## Routing Outcomes
+
+Use a small set of explicit outcomes:
+
+| Outcome | Meaning |
+| --- | --- |
+| `create_record` | Create a new top-of-funnel record. |
+| `update_record` | Update an existing top-of-funnel record. |
+| `attach_to_existing` | Do not alter core fields; attach activity/note/task to the existing record. |
+| `route_to_relationship` | Update a contact, account, opportunity, or customer surface instead. |
+| `ask_user` | Stop because routing is ambiguous. |
+| `no_write` | Preserve the analysis but do not change CRM. |
 
 ## Duplicate Checks
 
@@ -52,6 +77,8 @@ After approval, write only the approved content:
 
 The approval contract matters. Once the user approves a proposal, the write helper should treat the proposal as locked data, not as a draft to improve. Do not re-summarize, re-polish, enrich externally, or run unrelated rediscovery unless a write fails or a required value is missing.
 
+For the fuller reusable contract, see [Human-Approved CRM Write Contract](human-approved-crm-write-contract.md).
+
 ## Idempotent Write Helper Pattern
 
 For any CRM write helper, store state after each successful object write:
@@ -65,6 +92,20 @@ For any CRM write helper, store state after each successful object write:
 | Verification | Readback result and timestamp. |
 
 On rerun, skip anything that already has an ID. This makes the workflow recoverable if a later step fails after an earlier CRM write succeeded.
+
+## Verification Readback
+
+Verification is part of the workflow, not an optional afterthought.
+
+Read back:
+
+- the target record and selected fields;
+- the created activity;
+- the concise note;
+- the task, if one was approved;
+- any warning signs such as encoding damage or missing related-list entries.
+
+Report what was created, what was skipped, and what could not be verified.
 
 ## Field Policy
 
@@ -119,3 +160,12 @@ Use the activity or call description for rich interaction intelligence:
 - material uncertainty.
 
 Keep process logic out of the CRM activity. The CRM user needs the business context, not a log of how the workflow decided where to write.
+
+## Name And Display Policy
+
+Keep structured names clean:
+
+- store first name and last name in their proper fields;
+- do not stuff a full name into `Last_Name` to make a display card look better;
+- solve display problems in views, layouts, or formatting rules instead of corrupting data;
+- preserve source-provided casing and punctuation unless there is a clear normalization rule.
