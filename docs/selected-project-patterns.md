@@ -94,6 +94,7 @@ What the work covered:
 - Queue status for extraction state.
 - Separate event-context and entity-identified notes.
 - External worker pattern for document retrieval and parsing.
+- Source-document evidence used where broad enrichment would be too speculative.
 - Explicit statuses for entity found, no entity found, and extraction failed.
 - Cleanup rules that avoid deleting unprocessed pending records.
 
