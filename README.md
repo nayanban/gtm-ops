@@ -1,8 +1,8 @@
-# GTM Ops Automation Playbooks
+# GTM Ops
 
-Public-facing playbooks for building practical go-to-market and revenue-operations automation.
+Reusable playbooks for practical go-to-market and revenue-operations automation.
 
-This repository is a sanitized portfolio/reference copy. It does not contain private client repositories, CRM exports, prospect records, meeting transcripts, credentials, implementation IDs, or private account strategy.
+The playbooks focus on CRM enrichment, meeting-note workflows, prospect data cleanup, and signal-based research systems. The examples are synthetic and the patterns are designed to be adapted to different CRM and GTM stacks.
 
 ## What Is Included
 
@@ -13,7 +13,7 @@ This repository is a sanitized portfolio/reference copy. It does not contain pri
 
 ## Design Principles
 
-- Keep private systems private; publish only reusable patterns.
+- Keep private systems private; share only reusable patterns.
 - Separate automation from judgment. Automation can prepare records, but humans should approve ambiguous sales or customer actions.
 - Prefer source-backed notes over invented polish.
 - Preserve auditability without exposing private records.
@@ -27,22 +27,20 @@ docs/
   meeting-notes-to-crm-workflow.md
   prospect-data-cleanup-workflow.md
   signal-based-prospect-research.md
-  publication-checklist.md
 templates/
   approved-crm-write-input.example.json
   data-cleanup-review-columns.csv
 ```
 
-## Not Included
+## Privacy
 
-This repository intentionally excludes:
+The repository intentionally excludes private implementation material:
 
-- private CRM record IDs, workflow IDs, account IDs, or user IDs;
-- OAuth, API, refresh-token, or local secret-handling details;
+- CRM record IDs, workflow IDs, account IDs, or user IDs;
+- OAuth, API, refresh-token, or local credential-handling details;
 - raw meeting notes, transcripts, call summaries, or CRM activity payloads;
 - customer, prospect, or referral names;
-- private sales strategy, target-account lists, or segmentation findings;
-- historical commits from private source repositories.
+- private sales strategy, target-account lists, or segmentation findings.
 
 ## License
 
