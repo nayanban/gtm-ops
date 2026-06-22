@@ -6,6 +6,8 @@ This playbook turns a meeting note into a proposed CRM update without creating d
 
 Make CRM updates fast and reliable while keeping a human approval step before any write.
 
+This pattern is designed for high-context sales conversations where the raw note is not enough. The workflow separates routing logic, proposed CRM content, approval, write execution, and verification.
+
 ## Inputs
 
 - Meeting title, date, attendees, and source reference.
@@ -26,6 +28,8 @@ Before extracting fields, decide where the update belongs:
 | No write | The note lacks enough grounded information. |
 | Ask user | The target person, company, or relationship is ambiguous. |
 
+Related or referral people mentioned in a meeting should remain separate from the target record unless the user explicitly asks to create or update records for them. This avoids a subtle but damaging error: letting an interesting referral name replace the person the meeting was actually with.
+
 ## Duplicate Checks
 
 Search narrowly before proposing a write:
@@ -45,6 +49,22 @@ After approval, write only the approved content:
 3. Create one concise note for quick human review.
 4. Create a task only when there is a concrete next action.
 5. Verify the created or updated records.
+
+The approval contract matters. Once the user approves a proposal, the write helper should treat the proposal as locked data, not as a draft to improve. Do not re-summarize, re-polish, enrich externally, or run unrelated rediscovery unless a write fails or a required value is missing.
+
+## Idempotent Write Helper Pattern
+
+For any CRM write helper, store state after each successful object write:
+
+| Step | State To Store |
+| --- | --- |
+| Record create/update | Target record ID and mode. |
+| Activity create | Activity ID. |
+| Note create | Note ID. |
+| Task create | Task ID, if any. |
+| Verification | Readback result and timestamp. |
+
+On rerun, skip anything that already has an ID. This makes the workflow recoverable if a later step fails after an earlier CRM write succeeded.
 
 ## Field Policy
 
@@ -84,3 +104,18 @@ Avoid:
 - target-selection reasoning;
 - internal workflow reminders;
 - unsupported facts added for polish.
+
+## Detailed Activity Quality
+
+Use the activity or call description for rich interaction intelligence:
+
+- meeting source and date;
+- participants;
+- pain points and use cases;
+- buying signals;
+- competitor or tool context;
+- strategic insight;
+- next step;
+- material uncertainty.
+
+Keep process logic out of the CRM activity. The CRM user needs the business context, not a log of how the workflow decided where to write.
