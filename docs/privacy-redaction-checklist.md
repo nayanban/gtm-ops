@@ -46,5 +46,6 @@ Before publishing, scan for:
 - real dates tied to identifiable events;
 - IDs longer than a normal example value;
 - comments or instructions written to internal tooling.
+- prior public commits or release artifacts that may still contain removed private details.
 
 When in doubt, keep the private artifact private and publish only the generalized operating pattern.
