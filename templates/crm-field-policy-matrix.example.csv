@@ -1,0 +1,8 @@
+Field,Surface,Classification,Write Policy,Overwrite Policy,Verification,Notes
+Company Website,Lead or Account,Visible,Automation may write when trusted domain is available,Blank only,Read back normalized website,Synthetic example
+Company Profile Summary,Lead or Account,Visible,Automation may write after preserving old summary,Replace only after old summary is archived,Confirm note and new summary,Synthetic example
+Person Profile URL,Lead or Contact,Visible,Write only from person-level source,Blank only,Read back exact URL,Synthetic example
+Lead Source,Lead,Lower-priority,Write only when source is approved,Do not overwrite without approval,Confirm source value,Synthetic example
+Enrichment Status,Lead or Account,Automation-only,Automation may update status,Overwrite allowed by workflow,Confirm status and timestamp,Synthetic example
+Billing Identifier,Account,Protected-system,Do not write,Never overwrite,Confirm unchanged,Synthetic example
+Legacy Import ID,Any,Do-not-touch,Do not write,Never overwrite,Confirm unchanged when sampled,Synthetic example
