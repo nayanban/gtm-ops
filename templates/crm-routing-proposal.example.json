@@ -1,0 +1,45 @@
+{
+  "source": {
+    "system": "meeting-notes",
+    "reference": "synthetic-example",
+    "date": "2026-01-01"
+  },
+  "routing": {
+    "recommended_action": "create_lead",
+    "reason": "No matching record found in the synthetic duplicate checks.",
+    "target_person": "Example Person",
+    "related_people": []
+  },
+  "duplicate_checks": [
+    {
+      "surface": "leads",
+      "method": "exact_email",
+      "result": "no_match"
+    },
+    {
+      "surface": "contacts",
+      "method": "name_company",
+      "result": "no_match"
+    }
+  ],
+  "proposed_record": {
+    "first_name": "Example",
+    "last_name": "Person",
+    "company": "Example Company",
+    "email": "person@example.com",
+    "lead_source": "Example Source"
+  },
+  "activity": {
+    "create": true,
+    "summary": "Synthetic detailed activity summary."
+  },
+  "note": {
+    "create": true,
+    "summary": "Synthetic concise CRM note."
+  },
+  "task": {
+    "create": false,
+    "reason": "No concrete next step captured."
+  },
+  "uncertainties": []
+}
