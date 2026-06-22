@@ -5,7 +5,15 @@
     "date": "2026-01-01"
   },
   "routing": {
-    "recommended_action": "create_lead",
+    "recommended_action": "create_record",
+    "supported_actions": [
+      "create_record",
+      "update_record",
+      "attach_to_existing",
+      "route_to_relationship",
+      "ask_user",
+      "no_write"
+    ],
     "reason": "No matching record found in the synthetic duplicate checks.",
     "target_person": "Example Person",
     "related_people": []
@@ -23,6 +31,7 @@
     }
   ],
   "proposed_record": {
+    "record_type": "top-of-funnel-record",
     "first_name": "Example",
     "last_name": "Person",
     "company": "Example Company",
