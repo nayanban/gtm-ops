@@ -16,6 +16,20 @@ Build reviewed account universes from firmographic, technology, hiring, and acti
 6. Run person discovery or contact enrichment only for approved accounts.
 7. Track cost, credits, and evidence used.
 
+## Why Account-First Beats Contact-First
+
+Contact-first workflows often feel productive because they produce names and emails quickly. They can still be slow, uneven, and expensive when the underlying account universe is too broad or poorly qualified.
+
+Account-first research is usually cleaner because:
+
+- fit can be reviewed before spending enrichment credits;
+- filters are easier to explain and adjust;
+- account universes can be saved, compared, and reused;
+- contact discovery can focus on approved accounts;
+- disqualifying signals can remove whole accounts before person-level work begins.
+
+The practical rule: do not deepen people until the account deserves the work.
+
 ## Useful Account Signals
 
 | Signal Type | Use |
