@@ -1,0 +1,34 @@
+# Local secrets and credentials
+.env
+.env.*
+.secrets/
+*secret*
+*token*
+*oauth*
+*client_secret*
+*api_key*
+
+# Private data exports and working state
+exports/
+snapshots/
+transcripts/
+raw/
+state/
+*.xlsx
+*.xls
+*.csv
+!templates/*.csv
+*.json
+!templates/*.example.json
+
+# System/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Dependency/build output
+node_modules/
+dist/
+build/
+coverage/
