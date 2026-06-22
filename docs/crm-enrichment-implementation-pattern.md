@@ -94,3 +94,36 @@ Use synthetic or approved test records for:
 - provider returns mismatched domain;
 - existing summary preservation;
 - company fields present but person fields protected.
+
+## Pseudocode
+
+```text
+record = read_record(record_id)
+source_domain = choose_verified_website_or_work_email_domain(record)
+
+if source_domain is blank or personal_email_domain(source_domain):
+    mark_skipped("No trusted company domain")
+    stop
+
+provider_result = request_company_enrichment(source_domain)
+
+if provider_result is blank:
+    mark_skipped("No enrichment result")
+    stop
+
+if normalized_domain(provider_result.website) != normalized_domain(source_domain):
+    mark_skipped("Returned company does not match source domain")
+    stop
+
+if record.summary is nonblank and record.summary != provider_result.summary:
+    create_note("Previous summary before enrichment", record.summary)
+
+safe_fields = select_approved_company_fields(provider_result)
+write_record_fields(record_id, safe_fields)
+read_back_record(record_id, safe_fields)
+report_success_or_warning()
+```
+
+The pseudocode intentionally omits vendor API names, credentials, endpoints, and private field IDs. The reusable lesson is the control flow: read, choose a trusted domain, validate, preserve, write safe fields, and verify.
+
+For operational checks, see [Enrichment Failure Modes](enrichment-failure-modes.md).
