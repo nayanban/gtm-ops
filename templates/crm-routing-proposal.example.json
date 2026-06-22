@@ -28,6 +28,16 @@
       "surface": "contacts",
       "method": "name_company",
       "result": "no_match"
+    },
+    {
+      "surface": "accounts",
+      "method": "company_domain",
+      "result": "possible_context_only"
+    },
+    {
+      "surface": "commercial_relationships",
+      "method": "person_or_company_context",
+      "result": "not_checked_for_synthetic_example"
     }
   ],
   "proposed_record": {
