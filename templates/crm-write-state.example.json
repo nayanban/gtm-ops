@@ -1,0 +1,17 @@
+{
+  "source_reference": "synthetic-example",
+  "record_id": "",
+  "activity_id": "",
+  "note_id": "",
+  "task_id": "",
+  "created_at": "",
+  "updated_at": "",
+  "last_completed_step": "",
+  "last_verification": {
+    "record_found": false,
+    "activity_found": false,
+    "note_found": false,
+    "task_found": false,
+    "warnings": []
+  }
+}
