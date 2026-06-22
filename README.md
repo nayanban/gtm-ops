@@ -21,40 +21,6 @@ The playbooks focus on CRM enrichment, meeting-note workflows, outbound engageme
 - Preserve auditability without exposing private records.
 - Use small, reversible workflow steps before enabling unattended automation.
 
-## Repository Map
-
-```text
-docs/
-  operator-runbook.md
-  selected-project-patterns.md
-  crm-enrichment-architecture.md
-  crm-enrichment-implementation-pattern.md
-  enrichment-failure-modes.md
-  crm-backfill-safety-pattern.md
-  crm-record-experience-standards.md
-  meeting-notes-to-crm-workflow.md
-  human-approved-crm-write-contract.md
-  outbound-engagement-to-crm.md
-  prospect-data-cleanup-workflow.md
-  practice-area-tagging-workflow.md
-  account-research-infrastructure.md
-  signal-based-prospect-research.md
-  privacy-redaction-checklist.md
-templates/
-  approved-crm-write-input.example.json
-  verification-report.example.json
-  crm-write-state.example.json
-  outbound-source-note.example.json
-  data-cleanup-review-columns.csv
-  crm-routing-proposal.example.json
-  signal-queue-record.example.json
-  practice-area-taxonomy.example.csv
-  sparse-practice-tags.example.csv
-  module-enrichment-decision.example.md
-  crm-module-audit-checklist.example.md
-  crm-field-policy-matrix.example.csv
-```
-
 ## Privacy
 
 The repository intentionally excludes private implementation material:
@@ -63,7 +29,9 @@ The repository intentionally excludes private implementation material:
 - OAuth, API, refresh-token, or local credential-handling details;
 - raw meeting notes, transcripts, call summaries, or CRM activity payloads;
 - customer, prospect, or referral names;
-- private sales strategy, target-account lists, or segmentation findings.
+- private sales strategy, target-account lists, territories, or segmentation findings;
+- local paths, machine names, private repo names, or environment-specific commands;
+- vendor-specific endpoint mechanics, connection names, scopes, or UI setup details.
 
 ## Rights
 
