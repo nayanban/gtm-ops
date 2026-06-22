@@ -1,0 +1,42 @@
+{
+  "source_reference": "synthetic-example",
+  "run_id": "example-run-id",
+  "completed_at": "2026-01-01T10:30:00Z",
+  "target": {
+    "record_type": "top-of-funnel-record",
+    "record_id": "example-record-id",
+    "mode": "create"
+  },
+  "created_or_updated": [
+    {
+      "object_type": "record",
+      "object_id": "example-record-id",
+      "status": "verified"
+    },
+    {
+      "object_type": "activity",
+      "object_id": "example-activity-id",
+      "status": "verified"
+    },
+    {
+      "object_type": "note",
+      "object_id": "example-note-id",
+      "status": "verified"
+    }
+  ],
+  "skipped": [
+    {
+      "object_type": "task",
+      "reason": "No concrete next action was approved."
+    }
+  ],
+  "verification": {
+    "record_found": true,
+    "activity_found": true,
+    "note_found": true,
+    "task_found": false,
+    "text_encoding_ok": true
+  },
+  "warnings": [],
+  "manual_review_required": false
+}
