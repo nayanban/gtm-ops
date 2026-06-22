@@ -30,6 +30,25 @@ Use separate surfaces for separate jobs:
 6. Do not overwrite person-specific fields with organization data.
 7. Keep billing, subscription, customer-success, and account-management automations outside the enrichment change unless they are explicitly in scope.
 
+## Implementation Lessons
+
+The implementation story matters because enrichment can look simple in a settings screen while still failing operationally.
+
+Useful lessons:
+
+- Native enrichment configuration may define mappings without reliably applying values at the right moment.
+- Company-name-only matching can produce false positives; a trusted website or domain is a better confidence gate.
+- Enrichment output should be validated against the source identity before writeback.
+- A workflow/function layer can bridge the gap between provider output and safe CRM updates.
+- Backfills need stricter controls than ordinary single-record updates because a bad rule can affect many records at once.
+- Person fields and company fields should be protected by code and policy, not just by reviewer memory.
+
+Related patterns:
+
+- [CRM Enrichment Implementation Pattern](crm-enrichment-implementation-pattern.md)
+- [CRM Backfill Safety Pattern](crm-backfill-safety-pattern.md)
+- [CRM Record Experience Standards](crm-record-experience-standards.md)
+
 ## Module Boundary Pattern
 
 Treat CRM modules as different operational surfaces, not interchangeable tables.
