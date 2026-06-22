@@ -8,6 +8,7 @@
   "owner_id": "example-owner-id",
   "record": {
     "mode": "create",
+    "supported_modes": ["create", "update", "existing"],
     "record_id": null,
     "fields": {
       "First_Name": "Example",
@@ -34,5 +35,12 @@
     "subject": "",
     "description": "",
     "due_date": null
+  },
+  "verification": {
+    "read_back_record": true,
+    "read_back_activity": true,
+    "read_back_note": true,
+    "read_back_task_if_created": true,
+    "check_text_encoding": true
   }
 }
